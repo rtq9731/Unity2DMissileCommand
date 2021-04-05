@@ -23,7 +23,6 @@ public class HitScan : MonoBehaviour
 
     void Start()
     {
-        Debug.LogError(Enum.GetName(typeof(GameManager.typesOfObj), tagOfHitScanObject));
         target = GameObject.FindGameObjectWithTag(Enum.GetName(typeof(GameManager.typesOfObj), tagOfHitScanObject)).GetComponent<Transform>();
     }
  

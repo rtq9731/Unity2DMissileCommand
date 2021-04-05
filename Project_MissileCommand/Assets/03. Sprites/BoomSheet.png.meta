@@ -1,0 +1,356 @@
+fileFormatVersion: 2
+guid: 17369f6f5e925bd428c83355740dd641
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9218680335996639139
+    second: BoomSheet_0
+  - first:
+      213: -6594061228760774558
+    second: BoomSheet_1
+  - first:
+      213: 7067852608685066618
+    second: BoomSheet_2
+  - first:
+      213: -2404466340221639632
+    second: BoomSheet_3
+  - first:
+      213: 8417897523155900564
+    second: BoomSheet_4
+  - first:
+      213: -9002580975563770851
+    second: BoomSheet_5
+  - first:
+      213: -5110713524333008504
+    second: BoomSheet_7
+  - first:
+      213: 2234934386030626109
+    second: BoomSheet_7
+  - first:
+      213: 1850849186724897377
+    second: BoomSheet_8
+  - first:
+      213: 8792267618991313678
+    second: BoomSheet_9
+  - first:
+      213: -3444504181840567543
+    second: BoomSheet_10
+  - first:
+      213: 53298603245954134
+    second: BoomSheet_11
+  - first:
+      213: -3778254028360240931
+    second: BoomSheet_12
+  - first:
+      213: 2612913492883910459
+    second: BoomSheet_13
+  - first:
+      213: 4894936570156153986
+    second: BoomSheet_14
+  - first:
+      213: -34322894945233570
+    second: BoomSheet_15
+  - first:
+      213: 2160890254612392100
+    second: BoomSheet_16
+  - first:
+      213: -4347813341993003346
+    second: BoomSheet_17
+  - first:
+      213: 5838097777714316487
+    second: BoomSheet_18
+  - first:
+      213: -5865624833117330179
+    second: BoomSheet_19
+  - first:
+      213: 5276543241493548319
+    second: BoomSheet_20
+  - first:
+      213: 874912119640654075
+    second: BoomSheet_21
+  - first:
+      213: -234382688836194800
+    second: BoomSheet_22
+  - first:
+      213: -6280173418807467119
+    second: BoomSheet_23
+  - first:
+      213: -7864270156150865125
+    second: BoomSheet_24
+  - first:
+      213: 8362708269101445275
+    second: BoomSheet_25
+  - first:
+      213: 6320915864898436259
+    second: BoomSheet_26
+  - first:
+      213: -2224933810990945667
+    second: BoomSheet_27
+  - first:
+      213: -6945194658571698173
+    second: BoomSheet_28
+  - first:
+      213: 8951726605011253559
+    second: BoomSheet_29
+  - first:
+      213: -1385227655230750597
+    second: BoomSheet_30
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BoomSheet_0
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 204
+        width: 192
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a755f44ce45fef70800000000000000
+      internalID: 9218680335996639139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_1
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 204
+        width: 192
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 268c980df303d74a0800000000000000
+      internalID: -6594061228760774558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 204
+        width: 192
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a79cd71208e061260800000000000000
+      internalID: 7067852608685066618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_3
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 204
+        width: 192
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 034a4bc5a9e91aed0800000000000000
+      internalID: -2404466340221639632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 204
+        width: 192
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4981957823162d470800000000000000
+      internalID: 8417897523155900564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 192
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d14f4d9ec48601380800000000000000
+      internalID: -9002580975563770851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_7
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 4
+        width: 192
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 889a85990291319b0800000000000000
+      internalID: -5110713524333008504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Cursor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    Camera mainCam = null;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.position = new Vector2(mainCam.ScreenToWorldPoint(Input.mousePosition).x, mainCam.ScreenToWorldPoint(Input.mousePosition).y);
     }
 }
