@@ -1,0 +1,851 @@
+fileFormatVersion: 2
+guid: 638db3f9fe9a0c549968a0df639fc822
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4721617479812095596
+    second: BoomSheet_Building_0
+  - first:
+      213: 3572260204424858068
+    second: BoomSheet_Building_1
+  - first:
+      213: 2709416708071654289
+    second: BoomSheet_Building_2
+  - first:
+      213: -8066475115439686891
+    second: BoomSheet_Building_3
+  - first:
+      213: -2136056420067632093
+    second: BoomSheet_Building_4
+  - first:
+      213: 6198120637425352360
+    second: BoomSheet_Building_5
+  - first:
+      213: 8808507799189461447
+    second: BoomSheet_Building_6
+  - first:
+      213: 8985038018139589955
+    second: BoomSheet_Building_7
+  - first:
+      213: -6860831972585517013
+    second: BoomSheet_Building_8
+  - first:
+      213: -4033540961794785339
+    second: BoomSheet_Building_9
+  - first:
+      213: -1376166292681448575
+    second: BoomSheet_Building_10
+  - first:
+      213: 1086566567122044052
+    second: BoomSheet_Building_11
+  - first:
+      213: 1593700222678227524
+    second: BoomSheet_Building_12
+  - first:
+      213: -1292511847561839590
+    second: BoomSheet_Building_13
+  - first:
+      213: 294578215352366314
+    second: BoomSheet_Building_14
+  - first:
+      213: -1688486551402079876
+    second: BoomSheet_Building_15
+  - first:
+      213: -6922528782163776735
+    second: BoomSheet_Building_16
+  - first:
+      213: 8530052148920376437
+    second: BoomSheet_Building_17
+  - first:
+      213: 4577794972700168176
+    second: BoomSheet_Building_18
+  - first:
+      213: -3792792714426983488
+    second: BoomSheet_Building_19
+  - first:
+      213: -7730939599308322439
+    second: BoomSheet_Building_20
+  - first:
+      213: -7798260202718284832
+    second: BoomSheet_Building_21
+  - first:
+      213: 2504054449289563148
+    second: BoomSheet_Building_22
+  - first:
+      213: 8293648756087306989
+    second: BoomSheet_Building_23
+  - first:
+      213: 3956356029013138039
+    second: BoomSheet_Building_24
+  - first:
+      213: -7207878792147396363
+    second: BoomSheet_Building_25
+  - first:
+      213: -5315240266539978484
+    second: BoomSheet_Building_26
+  - first:
+      213: -2595616637216687334
+    second: BoomSheet_Building_27
+  - first:
+      213: -7854420778483383177
+    second: BoomSheet_Building_28
+  - first:
+      213: 1409559988842957362
+    second: BoomSheet_Building_29
+  - first:
+      213: 3343590921019556350
+    second: BoomSheet_Building_30
+  - first:
+      213: 2133333567122873857
+    second: BoomSheet_Building_31
+  - first:
+      213: 8704563767776615515
+    second: BoomSheet_Building_32
+  - first:
+      213: 6782746722386613984
+    second: BoomSheet_Building_33
+  - first:
+      213: -8789567788142963607
+    second: BoomSheet_Building_34
+  - first:
+      213: 381876711194898111
+    second: BoomSheet_Building_35
+  - first:
+      213: -751823675262014713
+    second: BoomSheet_Building_36
+  - first:
+      213: -6344633096468613218
+    second: BoomSheet_Building_37
+  - first:
+      213: 7975996886514702201
+    second: BoomSheet_Building_38
+  - first:
+      213: 769487932899200287
+    second: BoomSheet_Building_39
+  - first:
+      213: -1283794698730868278
+    second: BoomSheet_Building_40
+  - first:
+      213: -3246261260050677843
+    second: BoomSheet_Building_41
+  - first:
+      213: -6563900375895531923
+    second: BoomSheet_Building_42
+  - first:
+      213: 1627310480985626048
+    second: BoomSheet_Building_43
+  - first:
+      213: -2109442915497448728
+    second: BoomSheet_Building_44
+  - first:
+      213: 5803942620249379948
+    second: BoomSheet_Building_45
+  - first:
+      213: 2388073038845022216
+    second: BoomSheet_Building_46
+  - first:
+      213: -3533861167863641215
+    second: BoomSheet_Building_47
+  - first:
+      213: 6518923930819418662
+    second: BoomSheet_Building_48
+  - first:
+      213: 7675829027086998913
+    second: BoomSheet_Building_49
+  - first:
+      213: 4651618802125061516
+    second: BoomSheet_Building_50
+  - first:
+      213: 6222223069067731593
+    second: BoomSheet_Building_51
+  - first:
+      213: -3475415439677257237
+    second: BoomSheet_Building_52
+  - first:
+      213: -584302114415705681
+    second: BoomSheet_Building_53
+  - first:
+      213: -1800949888554410783
+    second: BoomSheet_Building_54
+  - first:
+      213: 4105356808646918502
+    second: BoomSheet_Building_55
+  - first:
+      213: 5619654462305649506
+    second: BoomSheet_Building_56
+  - first:
+      213: 6329393171658218387
+    second: BoomSheet_Building_57
+  - first:
+      213: 6144260321564474997
+    second: BoomSheet_Building_58
+  - first:
+      213: -115577333892020796
+    second: BoomSheet_Building_59
+  - first:
+      213: 7760583364980147522
+    second: BoomSheet_Building_60
+  - first:
+      213: -2630408770740252509
+    second: BoomSheet_Building_61
+  - first:
+      213: -3417478369324530172
+    second: BoomSheet_Building_62
+  - first:
+      213: -1161278805171183529
+    second: BoomSheet_Building_63
+  - first:
+      213: -8647569879871560552
+    second: BoomSheet_Building_64
+  - first:
+      213: 666954333100770636
+    second: BoomSheet_Building_65
+  - first:
+      213: 6913752592318221831
+    second: BoomSheet_Building_66
+  - first:
+      213: -2378425435266897942
+    second: BoomSheet_Building_67
+  - first:
+      213: -6581167333193438722
+    second: BoomSheet_Building_68
+  - first:
+      213: 4789431937881558335
+    second: BoomSheet_Building_69
+  - first:
+      213: -4423181101916329084
+    second: BoomSheet_Building_70
+  - first:
+      213: -4265626176588914042
+    second: BoomSheet_Building_71
+  - first:
+      213: -4830775687226123833
+    second: BoomSheet_Building_72
+  - first:
+      213: 6603448045693203000
+    second: BoomSheet_Building_73
+  - first:
+      213: -7149361941232108122
+    second: BoomSheet_Building_74
+  - first:
+      213: -799567264633103403
+    second: BoomSheet_Building_75
+  - first:
+      213: -4474237829270414240
+    second: BoomSheet_Building_76
+  - first:
+      213: 3707459473779314595
+    second: BoomSheet_Building_77
+  - first:
+      213: 9074059588602000007
+    second: BoomSheet_Building_78
+  - first:
+      213: 4057198169111850541
+    second: BoomSheet_Building_79
+  - first:
+      213: 7489105944955542088
+    second: BoomSheet_Building_80
+  - first:
+      213: 4614453835290346413
+    second: BoomSheet_Building_81
+  - first:
+      213: -4908751293915756705
+    second: BoomSheet_Building_82
+  - first:
+      213: 4166993979861837965
+    second: BoomSheet_Building_83
+  - first:
+      213: -8955796419353953496
+    second: BoomSheet_Building_84
+  - first:
+      213: -4460593168631407889
+    second: BoomSheet_Building_85
+  - first:
+      213: 7007726895346357685
+    second: BoomSheet_Building_86
+  - first:
+      213: -4008653518056162674
+    second: BoomSheet_Building_87
+  - first:
+      213: 703708042520333647
+    second: BoomSheet_Building_88
+  - first:
+      213: 841786608178780298
+    second: BoomSheet_Building_89
+  - first:
+      213: -2345877462075769900
+    second: BoomSheet_Building_90
+  - first:
+      213: -5861095625479915248
+    second: BoomSheet_Building_91
+  - first:
+      213: -4604437364839577855
+    second: BoomSheet_Building_92
+  - first:
+      213: 8096590711882957026
+    second: BoomSheet_Building_93
+  - first:
+      213: -3643628334629216107
+    second: BoomSheet_Building_94
+  - first:
+      213: 3486757828997118633
+    second: BoomSheet_Building_95
+  - first:
+      213: 8400686176667778246
+    second: BoomSheet_Building_96
+  - first:
+      213: -8795646448605934950
+    second: BoomSheet_Building_97
+  - first:
+      213: -8876861505487254904
+    second: BoomSheet_Building_98
+  - first:
+      213: 2014713042122445156
+    second: BoomSheet_Building_99
+  - first:
+      213: -8969405660307660067
+    second: BoomSheet_Building_100
+  - first:
+      213: -6411394361213775071
+    second: BoomSheet_Building_101
+  - first:
+      213: 340102760789436708
+    second: BoomSheet_Building_102
+  - first:
+      213: -2425542150374449083
+    second: BoomSheet_Building_103
+  - first:
+      213: 7471469723120358658
+    second: BoomSheet_Building_104
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BoomSheet_Building_0
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 553
+        width: 12
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6e9979e41e868140800000000000000
+      internalID: 4721617479812095596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_1
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 552
+        width: 19
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d90202bab7339130800000000000000
+      internalID: 3572260204424858068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_2
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 553
+        width: 23
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1938e111428c99520800000000000000
+      internalID: 2709416708071654289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_3
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 553
+        width: 42
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b70bade9f1e0090800000000000000
+      internalID: -8066475115439686891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_4
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 553
+        width: 56
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32c1da5d0043b52e0800000000000000
+      internalID: -2136056420067632093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_5
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 380
+        width: 72
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ae71c471e5240650800000000000000
+      internalID: 6198120637425352360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_6
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 380
+        width: 89
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c912f38c2b1e3a70800000000000000
+      internalID: 8808507799189461447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_7
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 380
+        width: 99
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d0794097441bc70800000000000000
+      internalID: 8985038018139589955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_8
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 380
+        width: 106
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b20d562dbad69c0a0800000000000000
+      internalID: -6860831972585517013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_9
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 379
+        width: 114
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cffb39addbf508c0800000000000000
+      internalID: -4033540961794785339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_10
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 206
+        width: 132
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1832bdc4c00e6ece0800000000000000
+      internalID: -1376166292681448575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_11
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 205
+        width: 142
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49400223982441f00800000000000000
+      internalID: 1086566567122044052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_12
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 205
+        width: 143
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a5233a8e5fd1610800000000000000
+      internalID: 1593700222678227524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_13
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 206
+        width: 156
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1cb71a9253101ee0800000000000000
+      internalID: -1292511847561839590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_14
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 205
+        width: 168
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae475ac735d861400800000000000000
+      internalID: 294578215352366314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_15
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 33
+        width: 171
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7997af6d6a4198e0800000000000000
+      internalID: -1688486551402079876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_16
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 33
+        width: 186
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12be5bfefbc3eef90800000000000000
+      internalID: -6922528782163776735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_17
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 36
+        width: 189
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57cd4fb3c35d06670800000000000000
+      internalID: 8530052148920376437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_18
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 36
+        width: 198
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ffcc520648978f30800000000000000
+      internalID: 4577794972700168176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomSheet_Building_19
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 36
+        width: 211
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cbd3ed0f1b4d5bc0800000000000000
+      internalID: -3792792714426983488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

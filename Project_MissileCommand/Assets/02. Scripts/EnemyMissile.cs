@@ -11,9 +11,7 @@ public class EnemyMissile : MonoBehaviour
     private float speed = 1;
     [SerializeField] [Header("각도 조정을 위한 변수")]
     private float offset = 0;
-    [SerializeField] [Header("폭팔 반경")]
-    private float explosionRange = 0;
-    [SerializeField]
+    [SerializeField] [Header("파티클 시스템")]
     private ParticleSystem particle = null;
 
     private Vector2 targetPos = Vector2.zero;
@@ -22,18 +20,23 @@ public class EnemyMissile : MonoBehaviour
     private Animator animator = null;
 
     private float angle;
+    private float timer;
+
+    private bool isFly;
+    public bool isHit;
 
     void OnEnable()
     {
+        timer = 0;
+        isFly = true;
+        isHit = false;
 
         //타겟 포지션 랜덤 생성
         targetPos = new Vector2(UnityEngine.Random.Range(GameManager.Instance.minPos.x, GameManager.Instance.maxPos.x), -4.6f);
-        Debug.Log(targetPos);
 
         thisPos = transform.position;
         targetPos.x = targetPos.x - thisPos.x;
         targetPos.y = targetPos.y - thisPos.y;
-        Debug.Log(targetPos);
         angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
 
@@ -46,22 +49,26 @@ public class EnemyMissile : MonoBehaviour
     private void Update()
     {
 
-        if (this.transform.position.y < -3f)
-            StartCoroutine(explosion());
-        else
+        if (this.transform.position.y < GameManager.Instance.minPos.y && timer > 2f || isHit)
         {
-            transform.Translate(Vector2.up * speed * Time.deltaTime);
+            StartCoroutine(explosion());
+            timer = 0;
+            isFly = false;
         }
+        else if(isFly == true)
+            transform.Translate(Vector2.up * speed * Time.deltaTime);
+
+        timer += Time.deltaTime;
     }
 
     IEnumerator explosion()
     {
-        Debug.Log("폭팔");
         animator.SetBool("isBoom", true);
         particle.Stop();
         yield return new WaitForSeconds(1.42f);
+        transform.position = new Vector2(UnityEngine.Random.Range(GameManager.Instance.minPos.x, GameManager.Instance.maxPos.x), 4.6f);
+        animator.SetBool("isBoom", false);
         this.gameObject.SetActive(false);
-
         yield return 0;
     }
 
