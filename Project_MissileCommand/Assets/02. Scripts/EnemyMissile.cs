@@ -49,7 +49,7 @@ public class EnemyMissile : MonoBehaviour
     private void Update()
     {
 
-        if (this.transform.position.y < GameManager.Instance.minPos.y && timer > 2f || isHit)
+        if (this.transform.position.y < GameManager.Instance.minPos.y && timer > 2f || isHit )
         {
             StartCoroutine(explosion());
             timer = 0;

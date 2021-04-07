@@ -2,24 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class MainSceneManager : MonoBehaviour
 {
 
     private GameObject missilePrefab;
+    private GameObject defenseMissilePrefab;
+    public Vector2 cursorPos = Vector2.zero; 
 
-    static public EnemyManager Instance = null;
+    static public MainSceneManager Instance = null;
 
     private int numberOfMissile = 0;
+    private int numberOfDefenseMissile = 0;
 
     [SerializeField] [Header("미사일 생성 텀")]
     private float makeMissileTime = 0f;
 
     private float makeMIssileTimer = 0f;
 
+    public Command command;
+
     private void Awake()
     {
-        if (Instance = null)
         Instance = this;
+        command = FindObjectOfType<Command>();
     }
     private void OnDestroy()
     {
@@ -34,17 +39,18 @@ public class EnemyManager : MonoBehaviour
             makeMIssileTimer = 0f;
         }
 
+        cursorPos = FindObjectOfType<Cursor>().transform.position;
         makeMIssileTimer += Time.deltaTime;
     }
 
     private void Start()
     {
         missilePrefab = Resources.Load("Missile") as GameObject;
+        defenseMissilePrefab = Resources.Load("DefenseMissile") as GameObject;
     }
 
     public void MakeMissile()
     {
-
         if (GameManager.Instance.missileList.Count < 10)
         {
             GameObject temp = null;
@@ -57,6 +63,23 @@ public class EnemyManager : MonoBehaviour
         numberOfMissile++;
         if (numberOfMissile == GameManager.Instance.missileList.Count)
             numberOfMissile = 0;
+
+    }
+
+    public void MakeDefenseMissile()
+    {
+        if (GameManager.Instance.defenseMissileList.Count < 10)
+        {
+            GameObject temp = null;
+            temp = Instantiate(defenseMissilePrefab);
+            GameManager.Instance.defenseMissileList.Add(temp);
+            temp.SetActive(false);
+        }
+
+        GameManager.Instance.defenseMissileList[numberOfDefenseMissile].gameObject.SetActive(true);
+        numberOfDefenseMissile++;
+        if (numberOfDefenseMissile == GameManager.Instance.defenseMissileList.Count)
+            numberOfDefenseMissile = 0;
 
     }
 

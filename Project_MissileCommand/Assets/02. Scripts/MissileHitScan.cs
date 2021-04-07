@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using System;
 using UnityEngine;
-using DG.Tweening;
 using UnityEngine.Animations;
 
 public class MissileHitScan : MonoBehaviour
@@ -12,13 +9,21 @@ public class MissileHitScan : MonoBehaviour
 
     private float hitRange = 1.5f;
 
+    private Animator animator = null;
+
+    public bool isDead = false;
+
+    private void Start()
+    {
+        animator = transform.GetComponent<Animator>();
+    }
+
     private void Update()
     {
         foreach (var item in GameManager.Instance.missileList)
         {
             if (Vector2.Distance(item.transform.position, transform.position) <= hitRange && item.gameObject.activeSelf && !item.GetComponent<EnemyMissile>().isHit)
             {
-                Debug.Log("HIT!");
                 item.GetComponent<EnemyMissile>().isHit = true;
                 hp--;
                 if (hp <= 0)
@@ -30,8 +35,10 @@ public class MissileHitScan : MonoBehaviour
 
     private IEnumerator Die()
     {
-        gameObject.transform.GetComponent<Animator>().SetBool("isDead", true);
+        animator.SetBool("isDead", true);
         yield return new WaitForSeconds(1.3f);
+        animator.SetBool("isDead", false);
+        isDead = true;
         gameObject.SetActive(false);
     }
 
