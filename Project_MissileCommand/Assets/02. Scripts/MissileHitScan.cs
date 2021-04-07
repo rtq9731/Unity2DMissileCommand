@@ -5,7 +5,7 @@ using UnityEngine.Animations;
 public class MissileHitScan : MonoBehaviour
 {
     [SerializeField] [Header("오브젝트의 체력")]
-    private int hp;
+    public int hp = 0;
 
     private float hitRange = 1.5f;
 

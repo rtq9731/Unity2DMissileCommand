@@ -7,6 +7,10 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+
+    public float score = 0;
+    public float surviveTime = 0f;
+
     public List<GameObject> missileList;
     public List<GameObject> defenseMissileList;
 
@@ -18,6 +22,18 @@ public class GameManager : MonoSingleton<GameManager>
         Command,
         THAAD,
         Missile,
+    }
+
+    public void SaveData()
+    {
+        PlayerPrefs.SetFloat("Score", score);
+        PlayerPrefs.SetFloat("surviveTime", surviveTime);
+    }
+
+    public void LoadData()
+    {
+        PlayerPrefs.GetFloat("Score", score);
+        PlayerPrefs.GetFloat("surviveTime", surviveTime);
     }
 
 }

@@ -64,6 +64,7 @@ public class EnemyMissile : MonoBehaviour
     IEnumerator explosion()
     {
         animator.SetBool("isBoom", true);
+        GameManager.Instance.score++;
         particle.Stop();
         yield return new WaitForSeconds(1.42f);
         transform.position = new Vector2(UnityEngine.Random.Range(GameManager.Instance.minPos.x, GameManager.Instance.maxPos.x), 4.6f);

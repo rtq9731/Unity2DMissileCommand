@@ -20,6 +20,8 @@ public class Command : MonoBehaviour
     {
         if (hitScan.isDead)
             GameOver();
+        else
+            GameManager.Instance.surviveTime += Time.deltaTime;
 
         missileFireTimer += Time.deltaTime;
     
@@ -34,6 +36,8 @@ public class Command : MonoBehaviour
 
     private void GameOver()
     {
+        Time.timeScale = 0;
+
         //TODO : 게임오버 만들기
     }
 }
