@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2933528208457875592}
   - component: {fileID: 8307628598884938995}
   m_Layer: 0
-  m_Name: Missile 1
+  m_Name: Missile
   m_TagString: Missile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9158938934206050959}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 9158938934433061238}
@@ -117,8 +117,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   offset: -90
-  explosionRange: 0
   particle: {fileID: 9158938934433061240}
+  isHit: 0
 --- !u!1 &9158938934433061239
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ public class EnemyMissile : MonoBehaviour
     private float offset = 0;
     [SerializeField] [Header("파티클 시스템")]
     private ParticleSystem particle = null;
+    [SerializeField] [Header("파괴 시 줄 점수")]
+    private float scoreOfDefense = 0f;
 
     private Vector2 targetPos = Vector2.zero;
     private Vector2 thisPos = Vector2.zero;
@@ -23,16 +25,19 @@ public class EnemyMissile : MonoBehaviour
     private float timer;
 
     private bool isFly;
+    private bool isDie; 
     public bool isHit;
 
     void OnEnable()
     {
         timer = 0;
         isFly = true;
+        isDie = false;
         isHit = false;
 
+        this.transform.position = new Vector2(UnityEngine.Random.Range(GameManager.Instance.minPos.x, GameManager.Instance.maxPos.x), GameManager.Instance.maxPos.y);
         //타겟 포지션 랜덤 생성
-        targetPos = new Vector2(UnityEngine.Random.Range(GameManager.Instance.minPos.x, GameManager.Instance.maxPos.x), -4.6f);
+        targetPos = new Vector2(UnityEngine.Random.Range(GameManager.Instance.minPos.x, GameManager.Instance.maxPos.x), GameManager.Instance.minPos.y );
 
         thisPos = transform.position;
         targetPos.x = targetPos.x - thisPos.x;
@@ -64,12 +69,21 @@ public class EnemyMissile : MonoBehaviour
     IEnumerator explosion()
     {
         animator.SetBool("isBoom", true);
-        GameManager.Instance.score++;
+
+        if(!isDie)
+        {
+            GameManager.Instance.score += scoreOfDefense;
+            if (scoreOfDefense == 0)
+                Debug.Log(this.gameObject + " = " + "점수가 초기화되지 않았습니다!");
+        }
+
         particle.Stop();
         yield return new WaitForSeconds(1.42f);
-        transform.position = new Vector2(UnityEngine.Random.Range(GameManager.Instance.minPos.x, GameManager.Instance.maxPos.x), 4.6f);
+        transform.position = new Vector2(UnityEngine.Random.Range(GameManager.Instance.minPos.x, GameManager.Instance.maxPos.x), 7);
         animator.SetBool("isBoom", false);
         this.gameObject.SetActive(false);
+        isHit = false;
+        isDie = false;
         yield return 0;
     }
 
