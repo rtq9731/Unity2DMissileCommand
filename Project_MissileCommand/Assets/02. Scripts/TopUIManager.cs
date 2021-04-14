@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class TopUIManager : MonoBehaviour
 {
@@ -11,14 +12,14 @@ public class TopUIManager : MonoBehaviour
     private Text hitText;
     [SerializeField]
     private Text incomingMsg;
+    [SerializeField] [Header("경고 문구가 타이핑 되는데 걸리는 시간")]
+    private float AnimationTimeOfIncomingMsg;
 
-    public bool isSurviveTimeUp;
     public bool isDefenseScoreUp;
 
     private void Update()
     {
-        if(isSurviveTimeUp)
-        timeText.text = "Survive : " + GameManager.Instance.surviveTime;
+        timeText.text = "Survive : " + string.Format("{0:0.#}", GameManager.Instance.surviveTime);
 
         if(isDefenseScoreUp)
         hitText.text = "Score : " + GameManager.Instance.score;
@@ -26,7 +27,7 @@ public class TopUIManager : MonoBehaviour
 
     public void incoming()
     {
-
+        incomingMsg.DOText("경고 ! 더 많은 미사일이 다가옵니다!", AnimationTimeOfIncomingMsg);
     }
 
 }

@@ -118,6 +118,7 @@ MonoBehaviour:
   speed: 1
   offset: -90
   particle: {fileID: 9158938934433061240}
+  scoreOfDefense: 50
   isHit: 0
 --- !u!1 &9158938934433061239
 GameObject:

@@ -16,6 +16,7 @@ public class DefenseMissile : MonoBehaviour
     public Vector2 targetPos = Vector2.zero;
 
     private bool isDead = false;
+    private bool isHit = false;
 
     private void OnEnable()
     {
@@ -32,12 +33,34 @@ public class DefenseMissile : MonoBehaviour
     {
         foreach (var item in GameManager.Instance.missileList)
         {
-            if (Vector2.Distance(this.transform.position, item.transform.position) <= defenseRange)
+
+            if (transform.rotation.z <= Quaternion.Euler(0, 0, 90).z)
+            {
+                if (transform.position.x < targetPos.x && transform.position.y > targetPos.y)
+                {
+                    StartCoroutine(Die());
+                }
+            }
+            else if (transform.rotation.z < Quaternion.Euler(0, 0, 0).z)
+            {
+                if (transform.position.x > targetPos.x && transform.position.y > targetPos.y)
+                {
+                    StartCoroutine(Die());
+                }
+            }
+            else if (transform.rotation.z == Quaternion.Euler(0, 0, 0).z)
+            {
+                if (transform.position.y > targetPos.y)
+                {
+                    StartCoroutine(Die());
+                }
+            }
+
+            if (isDead && Vector2.Distance(this.transform.position, item.transform.position) <= defenseRange)
             {
                 item.GetComponent<EnemyMissile>().isHit = true;
-                isDead = true;
-                StartCoroutine(Die());
             }
+
         }
 
         if(!isDead)
@@ -50,6 +73,7 @@ public class DefenseMissile : MonoBehaviour
     private IEnumerator Die()
     {
         gameObject.transform.GetComponent<Animator>().SetBool("isBoom", true);
+        isDead = true;
         yield return new WaitForSeconds(1.3f);
         isDead = false;
         gameObject.SetActive(false);

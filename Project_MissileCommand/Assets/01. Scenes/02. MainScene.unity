@@ -190,7 +190,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uACBD\uACE0 ! \uB354 \uB9CE\uC740 \uBBF8\uC0AC\uC77C\uC774 \uB2E4\uAC00\uC635\uB2C8\uB2E4!"
+  m_Text: 
 --- !u!222 &140616464
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -419,6 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc65d5fcf56db94fb89ce1e3f4e087e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TopUIManager: {fileID: 1918909177}
   cursorPos: {x: 0, y: 0}
   makeMissileTime: 3
   command: {fileID: 0}
@@ -650,7 +651,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Hit : '
+  m_Text: 'Score : 0'
 --- !u!222 &776857342
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1395,6 +1396,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 750180150}
   hitText: {fileID: 776857341}
+  incomingMsg: {fileID: 140616463}
+  AnimationTimeOfIncomingMsg: 10
+  isDefenseScoreUp: 0
 --- !u!1 &2010151759
 GameObject:
   m_ObjectHideFlags: 0

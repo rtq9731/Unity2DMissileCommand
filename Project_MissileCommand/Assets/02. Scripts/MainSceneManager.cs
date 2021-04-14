@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MainSceneManager : MonoBehaviour
 {
+    [SerializeField]
+    public TopUIManager TopUIManager;
 
     private GameObject missilePrefab;
     private GameObject defenseMissilePrefab;

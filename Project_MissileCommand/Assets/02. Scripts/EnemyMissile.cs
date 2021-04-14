@@ -60,7 +60,7 @@ public class EnemyMissile : MonoBehaviour
             timer = 0;
             isFly = false;
         }
-        else if(isFly == true)
+        else if(isFly)
             transform.Translate(Vector2.up * speed * Time.deltaTime);
 
         timer += Time.deltaTime;
@@ -72,7 +72,9 @@ public class EnemyMissile : MonoBehaviour
 
         if(!isDie)
         {
+            isDie = true;
             GameManager.Instance.score += scoreOfDefense;
+            MainSceneManager.Instance.TopUIManager.isDefenseScoreUp = true;
             if (scoreOfDefense == 0)
                 Debug.Log(this.gameObject + " = " + "점수가 초기화되지 않았습니다!");
         }
