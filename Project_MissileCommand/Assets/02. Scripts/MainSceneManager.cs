@@ -51,6 +51,11 @@ public class MainSceneManager : MonoBehaviour
         defenseMissilePrefab = Resources.Load("DefenseMissile") as GameObject;
     }
 
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+    }
+
     public void MakeMissile()
     {
         if (GameManager.Instance.missileList.Count < 10)

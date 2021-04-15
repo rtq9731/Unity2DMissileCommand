@@ -28,7 +28,6 @@ public class MissileHitScan : MonoBehaviour
                 hp--;
                 if (hp <= 0)
                     StartCoroutine(Die());
-
             }
         }
     }

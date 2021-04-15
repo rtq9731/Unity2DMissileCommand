@@ -19,25 +19,18 @@ public class Command : MonoBehaviour
     private void Update()
     {
         if (hitScan.isDead)
-            GameOver();
+            MainSceneManager.Instance.GameOver();
         else
             GameManager.Instance.surviveTime += Time.deltaTime;
 
         missileFireTimer += Time.deltaTime;
     
-        if (missileFireTimer > missileFireCool && Input.GetMouseButton(0))
+        if (missileFireTimer > missileFireCool && Input.GetKey(KeyCode.Z))
         {
             missileFireTimer = 0;
             Debug.Log("수비 미사일 발싸히히!!");
             MainSceneManager.Instance.MakeDefenseMissile();
         }
 
-    }
-
-    private void GameOver()
-    {
-        Time.timeScale = 0;
-
-        //TODO : 게임오버 만들기
     }
 }

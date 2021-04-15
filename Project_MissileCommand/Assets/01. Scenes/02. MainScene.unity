@@ -760,6 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 1677388121}
+  moveSpeed: 5
 --- !u!212 &1092904621
 SpriteRenderer:
   m_ObjectHideFlags: 0
