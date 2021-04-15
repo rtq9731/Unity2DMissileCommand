@@ -14,14 +14,16 @@ public class DefenseMissile : MonoBehaviour
     private float angle = 0f;
 
     public Vector2 targetPos = Vector2.zero;
+    private Vector2 firstTargetPos = Vector2.zero;
 
     private bool isDead = false;
-    private bool isHit = false;
 
     private void OnEnable()
     {
         this.transform.position = MainSceneManager.Instance.command.gameObject.transform.position;
         targetPos = MainSceneManager.Instance.cursorPos;
+        firstTargetPos = MainSceneManager.Instance.cursorPos;
+
 
         targetPos.x = targetPos.x - transform.position.x;
         targetPos.y = targetPos.y - transform.position.y;
@@ -31,42 +33,21 @@ public class DefenseMissile : MonoBehaviour
 
     private void Update()
     {
-        foreach (var item in GameManager.Instance.missileList)
-        {
-
-            if (transform.rotation.z <= Quaternion.Euler(0, 0, 90).z)
-            {
-                if (transform.position.x < targetPos.x && transform.position.y > targetPos.y)
-                {
-                    StartCoroutine(Die());
-                }
-            }
-            else if (transform.rotation.z < Quaternion.Euler(0, 0, 0).z)
-            {
-                if (transform.position.x > targetPos.x && transform.position.y > targetPos.y)
-                {
-                    StartCoroutine(Die());
-                }
-            }
-            else if (transform.rotation.z == Quaternion.Euler(0, 0, 0).z)
-            {
-                if (transform.position.y > targetPos.y)
-                {
-                    StartCoroutine(Die());
-                }
-            }
-
-            if (isDead && Vector2.Distance(this.transform.position, item.transform.position) <= defenseRange)
-            {
-                item.GetComponent<EnemyMissile>().isHit = true;
-            }
-
-        }
-
+        
         if(!isDead)
         transform.Translate(Vector2.up * speed * Time.deltaTime);
 
-        if (transform.position.x > GameManager.Instance.maxPos.x || transform.position.y > GameManager.Instance.maxPos.y || transform.position.x < GameManager.Instance.minPos.x || transform.position.y < GameManager.Instance.minPos.y)
+        foreach (GameObject item in GameManager.Instance.missileList)
+        {
+            if(isDead && Vector2.Distance(this.gameObject.transform.position, item.transform.position) <= defenseRange)
+            {
+                item.gameObject.GetComponent<EnemyMissile>().isHit = true;
+            }
+        }
+
+        if (transform.position.x > GameManager.Instance.maxPos.x || transform.position.y > GameManager.Instance.maxPos.y 
+            || transform.position.x < GameManager.Instance.minPos.x || transform.position.y < GameManager.Instance.minPos.y
+            || Vector2.Distance(firstTargetPos, this.transform.position) <= 0.1f)
             StartCoroutine(Die());
     }
 

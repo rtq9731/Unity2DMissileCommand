@@ -6,7 +6,10 @@ using UnityEngine.Animations;
 
 public class EnemyMissile : MonoBehaviour
 {
+
     // Start is called before the first frame update
+    [SerializeField] [Header("오브젝트의 체력")]
+    public int hp = 0;
     [SerializeField] [Header("미사일의 속도")]
     private float speed = 1;
     [SerializeField] [Header("각도 조정을 위한 변수")]
@@ -23,7 +26,9 @@ public class EnemyMissile : MonoBehaviour
 
     private float angle;
     private float timer;
+    private float hitRange = 1.5f;
 
+    public bool isDead = false;
     private bool isFly;
     private bool isDie; 
     public bool isHit;
