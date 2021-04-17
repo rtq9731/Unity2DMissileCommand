@@ -6,6 +6,8 @@ public class MainSceneManager : MonoBehaviour
 {
     [SerializeField]
     public TopUIManager TopUIManager;
+    [SerializeField]
+    private GameObject gameOverPanel;
 
     public Command command;
 

@@ -29,6 +29,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         PlayerPrefs.SetFloat("Score", score);
         PlayerPrefs.SetFloat("surviveTime", surviveTime);
+        PlayerPrefs.Save();
     }
 
     public void LoadData()
