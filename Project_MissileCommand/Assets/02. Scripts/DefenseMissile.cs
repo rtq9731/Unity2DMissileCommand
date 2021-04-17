@@ -37,7 +37,7 @@ public class DefenseMissile : MonoBehaviour
         if(!isDead)
         transform.Translate(Vector2.up * speed * Time.deltaTime);
 
-        foreach (GameObject item in GameManager.Instance.missileList)
+        foreach (GameObject item in MainSceneManager.Instance.missileList)
         {
             if(isDead && Vector2.Distance(this.gameObject.transform.position, item.transform.position) <= defenseRange)
             {

@@ -7,7 +7,6 @@ using UnityEngine.Animations;
 public class EnemyMissile : MonoBehaviour
 {
 
-    // Start is called before the first frame update
     [SerializeField] [Header("오브젝트의 체력")]
     public int hp = 0;
     [SerializeField] [Header("미사일의 속도")]
@@ -26,12 +25,12 @@ public class EnemyMissile : MonoBehaviour
 
     private float angle;
     private float timer;
-    private float hitRange = 1.5f;
 
     public bool isDead = false;
     private bool isFly;
     private bool isDie; 
     public bool isHit;
+    public bool isScoreUp = false;
 
     void OnEnable()
     {
@@ -40,8 +39,7 @@ public class EnemyMissile : MonoBehaviour
         isDie = false;
         isHit = false;
 
-        this.transform.position = new Vector2(UnityEngine.Random.Range(GameManager.Instance.minPos.x, GameManager.Instance.maxPos.x), GameManager.Instance.maxPos.y);
-        //타겟 포지션 랜덤 생성
+        this.transform.position = new Vector2(UnityEngine.Random.Range(GameManager.Instance.minPos.x, GameManager.Instance.maxPos.x), GameManager.Instance.maxPos.y); //타겟 포지션 랜덤 생성
         targetPos = new Vector2(UnityEngine.Random.Range(GameManager.Instance.minPos.x, GameManager.Instance.maxPos.x), GameManager.Instance.minPos.y );
 
         thisPos = transform.position;
@@ -51,9 +49,6 @@ public class EnemyMissile : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
 
         animator = this.transform.GetComponent<Animator>();
-        //x -= vx * speed * Time.deltaTime;
-        //y -= vy * speed * Time.deltaTime;
-
     }
 
     private void Update()
@@ -78,7 +73,7 @@ public class EnemyMissile : MonoBehaviour
         if(!isDie)
         {
             isDie = true;
-            GameManager.Instance.score += scoreOfDefense;
+            MainSceneManager.Instance.score += scoreOfDefense;
             MainSceneManager.Instance.TopUIManager.isDefenseScoreUp = true;
             if (scoreOfDefense == 0)
                 Debug.Log(this.gameObject + " = " + "점수가 초기화되지 않았습니다!");

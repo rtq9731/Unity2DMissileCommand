@@ -19,10 +19,10 @@ public class TopUIManager : MonoBehaviour
 
     private void Update()
     {
-        timeText.text = "Survive : " + string.Format("{0:0.#}", GameManager.Instance.surviveTime);
+        timeText.text = "Survive : " + string.Format("{0:0.#}", MainSceneManager.Instance.surviveTime);
 
         if(isDefenseScoreUp)
-        hitText.text = "Score : " + GameManager.Instance.score;
+        hitText.text = "Score : " + MainSceneManager.Instance.score;
     }
 
     public void DoIncomingText()

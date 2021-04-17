@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class MainSceneManager : MonoBehaviour
 {
@@ -13,12 +14,18 @@ public class MainSceneManager : MonoBehaviour
 
     private GameObject missilePrefab;
     private GameObject defenseMissilePrefab;
-    public Vector2 cursorPos = Vector2.zero; 
+    public Vector2 cursorPos = Vector2.zero;
+
+    public List<GameObject> missileList = new List<GameObject>();
+    public List<GameObject> defenseMissileList = new List<GameObject>();
 
     static public MainSceneManager Instance = null;
 
     private int numberOfMissile = 0;
     private int numberOfDefenseMissile = 0;
+
+    public float score = 0;
+    public float surviveTime = 0f;
 
     [SerializeField] [Header("스테이지 당 미사일 생성시간 감소량")]
     private float makeMissileTimeMinus;
@@ -38,7 +45,16 @@ public class MainSceneManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        Time.timeScale = 1;
+        numberOfMissile = 0;
+        numberOfDefenseMissile = 0;
+        cities = 0;
+        missilePrefab = Resources.Load("Missile") as GameObject;
+        defenseMissilePrefab = Resources.Load("DefenseMissile") as GameObject;
+        missileList = new List<GameObject>();
+        defenseMissileList = new List<GameObject>();
         command = FindObjectOfType<Command>();
+        DOTween.Clear();
     }
     private void OnDestroy()
     {
@@ -64,47 +80,42 @@ public class MainSceneManager : MonoBehaviour
         stageTimer += Time.deltaTime;
     }
 
-    private void Start()
-    {
-        missilePrefab = Resources.Load("Missile") as GameObject;
-        defenseMissilePrefab = Resources.Load("DefenseMissile") as GameObject;
-    }
-
     public void GameOver()
     {
+        gameOverPanel.SetActive(true);
         Time.timeScale = 0;
     }
 
     public void MakeMissile()
     {
-        if (GameManager.Instance.missileList.Count < 10)
+        if (missileList.Count < 10)
         {
             GameObject temp;
             temp = Instantiate(missilePrefab);
-            GameManager.Instance.missileList.Add(temp);
+            missileList.Add(temp);
             temp.SetActive(false);
         }
 
-        GameManager.Instance.missileList[numberOfMissile].gameObject.SetActive(true);
+        missileList[numberOfMissile].gameObject.SetActive(true);
         numberOfMissile++;
-        if (numberOfMissile == GameManager.Instance.missileList.Count)
+        if (numberOfMissile == missileList.Count)
             numberOfMissile = 0;
 
     }
 
     public void MakeDefenseMissile()
     {
-        if (GameManager.Instance.defenseMissileList.Count < 10)
+        if (defenseMissileList.Count < 10)
         {
             GameObject temp = null;
             temp = Instantiate(defenseMissilePrefab);
-            GameManager.Instance.defenseMissileList.Add(temp);
+            defenseMissileList.Add(temp);
             temp.SetActive(false);
         }
 
-        GameManager.Instance.defenseMissileList[numberOfDefenseMissile].gameObject.SetActive(true);
+        defenseMissileList[numberOfDefenseMissile].gameObject.SetActive(true);
         numberOfDefenseMissile++;
-        if (numberOfDefenseMissile == GameManager.Instance.defenseMissileList.Count)
+        if (numberOfDefenseMissile == defenseMissileList.Count)
             numberOfDefenseMissile = 0;
 
     }

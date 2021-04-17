@@ -9,10 +9,19 @@ public class DefenseCharger : MonoBehaviour
 
     private void Update()
     {
-
         switch(MainSceneManager.Instance.cities)
         {
-            case 0: MainSceneManager.Instance.GameOver(); break;
+            default: break;
+            case 0:
+                {
+                    gaugeObjs[0].SetActive(false);
+                    gaugeObjs[1].SetActive(false);
+                    gaugeObjs[2].SetActive(false);
+                    gaugeObjs[3].SetActive(false);
+                    gaugeObjs[4].SetActive(false);
+                    gaugeObjs[5].SetActive(false);
+                    Invoke("GameOver", 3f); break;
+                }
             case 1:
                 {
                     gaugeObjs[0].SetActive(false);
@@ -75,6 +84,11 @@ public class DefenseCharger : MonoBehaviour
                 }
 
         }
+    }
+
+    private void GameOver()
+    {
+        MainSceneManager.Instance.GameOver();
     }
 
 }

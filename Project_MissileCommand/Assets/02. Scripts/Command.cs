@@ -9,7 +9,6 @@ public class Command : MonoBehaviour
     private float missileFireTimer;
 
     private MissileHitScan hitScan;
-    private bool canFire;
 
     private void Start()
     {
@@ -21,7 +20,7 @@ public class Command : MonoBehaviour
         if (hitScan.isDead)
             MainSceneManager.Instance.GameOver();
         else
-            GameManager.Instance.surviveTime += Time.deltaTime;
+            MainSceneManager.Instance.surviveTime += Time.deltaTime;
 
         missileFireTimer += Time.deltaTime;
     

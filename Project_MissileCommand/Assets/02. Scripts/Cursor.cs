@@ -5,8 +5,6 @@ using UnityEngine;
 public class Cursor : MonoBehaviour
 {
     [SerializeField]
-    Camera mainCam = null;
-    [SerializeField]
     float moveSpeed = 1f;
 
     void Update()

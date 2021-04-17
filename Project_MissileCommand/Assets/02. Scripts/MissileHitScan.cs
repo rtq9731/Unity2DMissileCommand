@@ -21,8 +21,10 @@ public class MissileHitScan : MonoBehaviour
 
     private void Update()
     {
-        foreach (var item in GameManager.Instance.missileList)
+        foreach (var item in MainSceneManager.Instance.missileList)
         {
+            if (item == null)
+                break;
             if (Vector2.Distance(item.transform.position, transform.position) <= hitRange && item.gameObject.activeSelf && !item.GetComponent<EnemyMissile>().isHit)
             {
                 item.GetComponent<EnemyMissile>().isHit = true;

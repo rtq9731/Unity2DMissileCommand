@@ -9,12 +9,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoSingleton<GameManager>
 {
 
-    public float score = 0;
-    public float surviveTime = 0f;
-
-    public List<GameObject> missileList;
-    public List<GameObject> defenseMissileList;
-
     public Vector2 maxPos = new Vector2(8.6f, 4.6f);
     public Vector2 minPos = new Vector2(-8.6f, -4.6f);
 
@@ -27,15 +21,15 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void SaveData()
     {
-        PlayerPrefs.SetFloat("Score", score);
-        PlayerPrefs.SetFloat("surviveTime", surviveTime);
+        PlayerPrefs.SetFloat("Score", MainSceneManager.Instance.score);
+        PlayerPrefs.SetFloat("surviveTime", MainSceneManager.Instance.surviveTime);
         PlayerPrefs.Save();
     }
 
     public void LoadData()
     {
-        PlayerPrefs.GetFloat("Score", score);
-        PlayerPrefs.GetFloat("surviveTime", surviveTime);
+        PlayerPrefs.GetFloat("Score", MainSceneManager.Instance.score);
+        PlayerPrefs.GetFloat("surviveTime", MainSceneManager.Instance.surviveTime);
     }
 
 }

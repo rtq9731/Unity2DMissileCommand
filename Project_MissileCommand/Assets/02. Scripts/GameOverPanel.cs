@@ -42,8 +42,8 @@ public class GameOverPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        scoreText.text = "ScoreText : " + GameManager.Instance.score.ToString();
-        timeText.text = "Survive Time : " + GameManager.Instance.surviveTime.ToString();
+        scoreText.text = "ScoreText : " + MainSceneManager.Instance.score.ToString();
+        timeText.text = "Survive Time : " + MainSceneManager.Instance.surviveTime.ToString();
     }
 
 }
