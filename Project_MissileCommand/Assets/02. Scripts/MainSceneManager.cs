@@ -7,6 +7,8 @@ public class MainSceneManager : MonoBehaviour
     [SerializeField]
     public TopUIManager TopUIManager;
 
+    public Command command;
+
     private GameObject missilePrefab;
     private GameObject defenseMissilePrefab;
     public Vector2 cursorPos = Vector2.zero; 
@@ -16,12 +18,20 @@ public class MainSceneManager : MonoBehaviour
     private int numberOfMissile = 0;
     private int numberOfDefenseMissile = 0;
 
+    [SerializeField] [Header("스테이지 당 미사일 생성시간 감소량")]
+    private float makeMissileTimeMinus;
+
     [SerializeField] [Header("미사일 생성 텀")]
     private float makeMissileTime = 0f;
 
-    private float makeMIssileTimer = 0f;
+    private float makeMissileTimer = 0f;
 
-    public Command command;
+    [SerializeField] [Header("스테이지 당 시간")]
+    private float stageTime = 0f;
+
+    private float stageTimer = 0f;
+
+    public int cities = 0;
 
     private void Awake()
     {
@@ -35,14 +45,21 @@ public class MainSceneManager : MonoBehaviour
 
     private void Update()
     {
-        if (makeMIssileTimer >= makeMissileTime)
+        if (makeMissileTimer >= makeMissileTime)
         {
             MakeMissile();
-            makeMIssileTimer = 0f;
+            makeMissileTimer = 0f;
+        }
+        if(stageTimer >= stageTime)
+        {
+            makeMissileTime -= makeMissileTimeMinus;
+            TopUIManager.DoIncomingText();
+            stageTimer = 0f;
         }
 
         cursorPos = FindObjectOfType<Cursor>().transform.position;
-        makeMIssileTimer += Time.deltaTime;
+        makeMissileTimer += Time.deltaTime;
+        stageTimer += Time.deltaTime;
     }
 
     private void Start()
@@ -60,7 +77,7 @@ public class MainSceneManager : MonoBehaviour
     {
         if (GameManager.Instance.missileList.Count < 10)
         {
-            GameObject temp = null;
+            GameObject temp;
             temp = Instantiate(missilePrefab);
             GameManager.Instance.missileList.Add(temp);
             temp.SetActive(false);

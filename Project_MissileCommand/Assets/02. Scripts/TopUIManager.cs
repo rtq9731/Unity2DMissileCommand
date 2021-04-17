@@ -25,9 +25,17 @@ public class TopUIManager : MonoBehaviour
         hitText.text = "Score : " + GameManager.Instance.score;
     }
 
-    public void incoming()
+    public void DoIncomingText()
+    {
+        StartCoroutine(incomingText());
+    }
+
+    private IEnumerator incomingText()
     {
         incomingMsg.DOText("경고 ! 더 많은 미사일이 다가옵니다!", AnimationTimeOfIncomingMsg);
+        yield return new WaitForSeconds(AnimationTimeOfIncomingMsg);
+        incomingMsg.text = " ";
+        DOTween.Clear();
     }
 
 }

@@ -16,6 +16,7 @@ public class MissileHitScan : MonoBehaviour
     private void Start()
     {
         animator = transform.GetComponent<Animator>();
+        MainSceneManager.Instance.cities++;
     }
 
     private void Update()
@@ -26,7 +27,7 @@ public class MissileHitScan : MonoBehaviour
             {
                 item.GetComponent<EnemyMissile>().isHit = true;
                 hp--;
-                if (hp <= 0)
+                if (hp <= 0 && !animator.GetBool("isDead"))
                     StartCoroutine(Die());
             }
         }
@@ -35,6 +36,7 @@ public class MissileHitScan : MonoBehaviour
     private IEnumerator Die()
     {
         animator.SetBool("isDead", true);
+        MainSceneManager.Instance.cities--;
         yield return new WaitForSeconds(1.3f);
         animator.SetBool("isDead", false);
         isDead = true;

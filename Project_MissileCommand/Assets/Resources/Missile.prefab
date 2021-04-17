@@ -115,10 +115,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e01344f171e0b48ac51fe2b9f9bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  hp: 0
+  speed: 2
   offset: -90
   particle: {fileID: 9158938934433061240}
   scoreOfDefense: 50
+  isDead: 0
   isHit: 0
 --- !u!1 &9158938934433061239
 GameObject:
