@@ -22,26 +22,40 @@ public class GameManager : MonoSingleton<GameManager>
         Missile,
     }
 
-    public static void SaveData<T>(T instance)
+    public void SaveData()
     {
-        using (var ms = new MemoryStream())
+        for (int i = 0; i < datas.Count; i++)
         {
-            new BinaryFormatter().Serialize(ms, instance);
-            for (int i = 0; i < datas.Count; i++)
-            {
-                PlayerPrefs.SetString("Datas" + i.ToString(), System.Convert.ToBase64String(ms.ToArray()));
-            }
-
+            // PlayerPrefs.SetString($"{datas[i].id}", );
         }
     }
 
     public void LoadData()
     {
+
     }
 
     private bool CheckSaveFile()
     {
         return File.Exists(Application.persistentDataPath + "/TestSave.dat");
     }
+
+    private void DeleteSave()
+    {
+        if (File.Exists(Application.persistentDataPath + "/TestSave.dat"))
+        {
+            File.Delete(Application.persistentDataPath + "/TestSave.dat");
+            Debug.Log ("성공적으로 삭제하였습니다.");
+            return;
+        }
+        else
+        {
+            Debug.Log("삭제에 실패하였습니다.");
+            return;
+        }
+
+    }
+
+    
 
 }

@@ -2,26 +2,24 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameOverPanel : MonoBehaviour
 {
-    [SerializeField]
-    Button restartBtn;
-    [SerializeField]
-    Button quitBtn;
-    [SerializeField]
-    Text scoreText;
-    [SerializeField]
-    Text timeText;
+    [SerializeField] Button restartBtn;
+    [SerializeField] Button quitBtn;
 
-    [SerializeField]
-    RecordScoreInput input;
-    [SerializeField]
-    GameObject leaderBorad; // 부모오브젝트 ( 스크롤뷰의 콘텐츠 )
+    [SerializeField] Text scoreText;
+    [SerializeField] Text timeText;
+
+    [SerializeField] RecordScoreInput input;
+
+    [SerializeField] GameObject leaderBorad; // 부모오브젝트 ( 스크롤뷰의 콘텐츠 )
+
+    private GameObject scorePanelResource = null;
 
     private List<GameObject> scorePanels = new List<GameObject>();
 
-    private GameObject scorePanelResource = null;
 
     private void Awake()
     {
@@ -39,11 +37,11 @@ public class GameOverPanel : MonoBehaviour
         if (scorePanels.Count < 5)
         {
             temp = Instantiate(scorePanelResource);
-            temp.SetActive(true);
             temp.transform.SetParent(leaderBorad.transform);
             temp.GetComponent<ScorePanel>().score = MainSceneManager.Instance.score;
             temp.transform.localScale = new Vector3(1, 1, 1);
             scorePanels.Add(temp);
+            temp.SetActive(true);
         }
         else
         {
@@ -59,18 +57,19 @@ public class GameOverPanel : MonoBehaviour
                 return 0;
             });
 
-            ScorePanel temp1 = scorePanels[4].GetComponent<ScorePanel>();
+            ScorePanel tempData = scorePanels[4].GetComponent<ScorePanel>();
+            GameObject tempObj = tempData.gameObject;
 
-            temp1.score = MainSceneManager.Instance.score;
-            temp1.msg = input.msgInput.ToString();
-            temp1.name = input.nameInput.ToString();
+            tempData.score = MainSceneManager.Instance.score;
+            tempData.msg = input.msgInput.text.ToString();
+            tempData.playerName = input.nameInput.text.ToString();
 
-            temp.transform.SetSiblingIndex(scorePanels.IndexOf(temp));
+            tempObj.transform.SetSiblingIndex(scorePanels.IndexOf(tempObj));
 
             return;
         }
-        ScorePanel currentScorePanel = temp.GetComponent<ScorePanel>();
 
+        ScorePanel currentScorePanel = temp.GetComponent<ScorePanel>();
 
         scorePanels.Sort((x, y) =>
         {
@@ -86,8 +85,11 @@ public class GameOverPanel : MonoBehaviour
 
         temp.transform.SetSiblingIndex(scorePanels.IndexOf(temp));
         currentScorePanel.score = MainSceneManager.Instance.score;
-        currentScorePanel.msg = input.msgInput.ToString();
-        currentScorePanel.name = input.nameInput.ToString();
+        currentScorePanel.msg = input.msgInput.text.ToString();
+        currentScorePanel.playerName = input.nameInput.text.ToString();
+        currentScorePanel.ReloadData();
+
+        input.GetComponent<RectTransform>().DOAnchorPosY(800, 1).SetEase(Ease.InOutQuart);
     }
 
     private void OnEnable()

@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class RecordScoreInput : MonoBehaviour
 {
-    public Text nameInput;
-    public Text msgInput;
+    public InputField nameInput;
+    public InputField msgInput;
     public Button okBtn;
     public Button cancelBtn;
 }

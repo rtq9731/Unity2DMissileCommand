@@ -7,19 +7,15 @@ public class ScorePanel : MonoBehaviour
     public float score;
     public Text scoreText;
     public Text nameText;
-    public string name;
+    public string playerName;
     public Text msgText;
     public string msg;
 
-    private void Start()
+    public void ReloadData()
     {
-        scoreText.text = "Score : " + score.ToString();
-        nameText.text = "Name : " + score.ToString();
+        scoreText.text = $"Score : {score}";
+        nameText.text = $"Name : {playerName}";
         msgText.text = msg;
-    }
-    private void OnEnable()
-    {
-        scoreText.text = "Score : " + score.ToString();
-    }
+    }    
 
 }
