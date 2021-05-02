@@ -90,6 +90,7 @@ public class GameOverPanel : MonoBehaviour
         currentScorePanel.ReloadData();
 
         input.GetComponent<RectTransform>().DOAnchorPosY(800, 1).SetEase(Ease.InOutQuart);
+        // input.gameObject.SetActive(false);
     }
 
     private void OnEnable()

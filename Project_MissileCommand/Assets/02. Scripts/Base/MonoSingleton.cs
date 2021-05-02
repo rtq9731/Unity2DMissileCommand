@@ -46,5 +46,9 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         isShutDown = true;
     }
+    private void OnEnable()
+    {
+        isShutDown = false;
+    }
 
 }
