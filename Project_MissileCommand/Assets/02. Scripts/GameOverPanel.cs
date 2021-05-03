@@ -8,27 +8,24 @@ public class GameOverPanel : MonoBehaviour
 {
     [SerializeField] Button restartBtn;
     [SerializeField] Button quitBtn;
-
     [SerializeField] Text scoreText;
     [SerializeField] Text timeText;
-
     [SerializeField] RecordScoreInput input;
-
     [SerializeField] GameObject leaderBorad; // 부모오브젝트 ( 스크롤뷰의 콘텐츠 )
 
     private GameObject scorePanelResource = null;
 
     private List<GameObject> scorePanels = new List<GameObject>();
+    private List<DataClass> datas = new List<DataClass>();
 
 
     private void Awake()
     {
         restartBtn.onClick.AddListener(() => SceneManager.LoadScene("MainScene"));
         quitBtn.onClick.AddListener(() => Application.Quit());
-        input.cancelBtn.onClick.AddListener(() => input.gameObject.SetActive(false));
+        input.cancelBtn.onClick.AddListener(() => DeleteInput());
         input.okBtn.onClick.AddListener(InputData);
         scorePanelResource = (GameObject)Resources.Load("ScorePanel");
-        input = FindObjectOfType<RecordScoreInput>();
     }
 
     private void InputData()
@@ -65,7 +62,7 @@ public class GameOverPanel : MonoBehaviour
             tempData.playerName = input.nameInput.text.ToString();
 
             tempObj.transform.SetSiblingIndex(scorePanels.IndexOf(tempObj));
-
+            DeleteInput();
             return;
         }
 
@@ -84,19 +81,37 @@ public class GameOverPanel : MonoBehaviour
         });
 
         temp.transform.SetSiblingIndex(scorePanels.IndexOf(temp));
-        currentScorePanel.score = MainSceneManager.Instance.score;
-        currentScorePanel.msg = input.msgInput.text.ToString();
-        currentScorePanel.playerName = input.nameInput.text.ToString();
+        DataClass data = new DataClass(input.nameInput.text.ToString(), MainSceneManager.Instance.score, input.msgInput.text.ToString());
+        datas.Add(data);
+        currentScorePanel.score = data.score;
+        currentScorePanel.msg = data.msg;
+        currentScorePanel.playerName = data.name;
         currentScorePanel.ReloadData();
 
+        DeleteInput();
+    }
+
+    private void DeleteInput()
+    {
         input.GetComponent<RectTransform>().DOAnchorPosY(800, 1).SetEase(Ease.InOutQuart);
-        // input.gameObject.SetActive(false);
+        Invoke(nameof(InputActiveFalse), 2);
+    }
+    private void InputActiveFalse()
+    {
+        input.gameObject.SetActive(false);
     }
 
     private void OnEnable()
     {
         scoreText.text = "ScoreText : " + MainSceneManager.Instance.score.ToString();
         timeText.text = "Survive Time : " + MainSceneManager.Instance.surviveTime.ToString();
+
+        if (scorePanels.Count < 5)
+        {
+            input.gameObject.SetActive(true);
+            input.GetComponent<RectTransform>().DOAnchorPosY(0, 1).SetEase(Ease.OutQuad);
+            Invoke(nameof(DOTween.Clear), 2);
+        }
     }
 
 }

@@ -92,9 +92,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisObj: {fileID: 6539895985167607346}
   score: 0
-  nameText: {fileID: 6539895985662738545}
   scoreText: {fileID: 6539895986552574696}
+  nameText: {fileID: 6539895985662738545}
+  playerName: 
   msgText: {fileID: 6539895985883029909}
+  msg: 
 --- !u!1 &6539895985662738547
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +240,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 59d30010d97cecc43baa26843eab02ae, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
