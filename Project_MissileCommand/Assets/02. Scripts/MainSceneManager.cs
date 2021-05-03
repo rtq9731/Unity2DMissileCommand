@@ -87,7 +87,6 @@ public class MainSceneManager : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
-        Time.timeScale = 0;
     }
 
     public void MakeMissile()

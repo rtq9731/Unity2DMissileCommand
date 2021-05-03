@@ -10,12 +10,15 @@ public class ScorePanel : MonoBehaviour
     public string playerName;
     public Text msgText;
     public string msg;
+    public Text surviveTimeText;
+    public float surviveTime = 0;
 
     public void ReloadData()
     {
         scoreText.text = $"Score : {score}";
         nameText.text = $"Name : {playerName}";
         msgText.text = msg;
+        surviveTimeText.text = $"Survive : {surviveTime}s";
     }    
 
 }

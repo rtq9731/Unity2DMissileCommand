@@ -11,15 +11,9 @@ public class GameManager : MonoSingleton<GameManager>
     public Vector2 maxPos = new Vector2(8.6f, 4.6f);
     public Vector2 minPos = new Vector2(-8.6f, -4.6f);
 
-    public List<DataClass> datas = new List<DataClass>();
+    public RankData datas;
     private string jsonString;
 
-    public enum TypesOfObj
-    {
-        Command,
-        THAAD,
-        Missile,
-    }
 
     public void SaveData()
     {
@@ -31,17 +25,17 @@ public class GameManager : MonoSingleton<GameManager>
         Debug.Log("JSON : " + jsonString);
     }
 
-    public void LoadData()
+    public void LoadData() 
     {
         FileStream fs = new FileStream(Application.persistentDataPath + "/TestSave.dat", FileMode.Open);
         byte[] data = new byte[fs.Length];
         fs.Read(data, 0, data.Length);
         fs.Close();
         jsonString = Encoding.UTF8.GetString(data);
-        datas = JsonUtility.FromJson<List<DataClass>>(jsonString);
+        datas = JsonUtility.FromJson<RankData>(jsonString);
     }
 
-    private bool CheckSaveFile()
+    public bool CheckSaveFile()
     {
         return File.Exists(Application.persistentDataPath + "/TestSave.dat");
     }

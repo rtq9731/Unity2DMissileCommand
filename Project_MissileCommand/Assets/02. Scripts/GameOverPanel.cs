@@ -27,6 +27,29 @@ public class GameOverPanel : MonoBehaviour
         input.okBtn.onClick.AddListener(InputData);
         scorePanelResource = (GameObject)Resources.Load("ScorePanel");
     }
+    private void OnEnable()
+    {
+        scoreText.text = "ScoreText : " + MainSceneManager.Instance.score.ToString();
+        timeText.text = "Survive Time : " + MainSceneManager.Instance.surviveTime.ToString();
+
+        if (GameManager.Instance.CheckSaveFile())
+        {
+            GameManager.Instance.LoadData();
+            LoadLeaderBoard();
+        }
+        SortScorePanels();
+
+        if (GameManager.Instance.datas.datas.Count < 5 || MainSceneManager.Instance.surviveTime > GameManager.Instance.datas.datas[4].surviveTime)
+            CallScoreInput();
+
+        Debug.Log(this.gameObject.name + " 켜짐 ! ");
+    }
+
+    public void CallScoreInput()
+    {
+        input.gameObject.SetActive(true);
+        input.gameObject.GetComponent<RectTransform>().DOAnchorPosY(0, 1).SetEase(Ease.OutQuad);
+    }
 
     private void InputData()
     {
@@ -40,8 +63,7 @@ public class GameOverPanel : MonoBehaviour
 
             GameObject tempObj = scorePanels[4].GetComponent<ScorePanel>().gameObject;
 
-            InputDataToPanel(scorePanels[4].GetComponent<ScorePanel>(),
-                new DataClass(input.nameInput.text.ToString(), MainSceneManager.Instance.score, input.msgInput.text.ToString(), MainSceneManager.Instance.surviveTime));
+            InputDataToPanel(scorePanels[4].GetComponent<ScorePanel>(), new DataClass(input.nameInput.text, MainSceneManager.Instance.score, input.msgInput.text, MainSceneManager.Instance.surviveTime));
 
             tempObj.transform.SetSiblingIndex(scorePanels.IndexOf(tempObj));
             GameManager.Instance.SaveData();
@@ -51,12 +73,25 @@ public class GameOverPanel : MonoBehaviour
 
         SortScorePanels();
 
-        DataClass data = new DataClass(input.nameInput.text.ToString(), MainSceneManager.Instance.score, input.msgInput.text.ToString(), MainSceneManager.Instance.surviveTime);
-        GameManager.Instance.datas.Add(data);
+        DataClass data = new DataClass(input.nameInput.text, MainSceneManager.Instance.score, input.msgInput.text, MainSceneManager.Instance.surviveTime);
+        GameManager.Instance.datas.AddData(data);
         temp.transform.SetSiblingIndex(scorePanels.IndexOf(temp));
         InputDataToPanel(temp.GetComponent<ScorePanel>(), data);
         GameManager.Instance.SaveData();
         DeleteInput();
+    }
+    private void InputDataFromLoad(DataClass data)
+    {
+        GameObject temp = null;
+        temp = Instantiate(scorePanelResource);
+        temp.transform.SetParent(leaderBorad.transform);
+        temp.transform.localScale = new Vector3(1, 1, 1);
+        scorePanels.Add(temp);
+        temp.SetActive(true);
+        ScorePanel tempScorePanel = temp.GetComponent<ScorePanel>();
+        tempScorePanel.score = data.score;
+        tempScorePanel.msg = data.msg;
+        tempScorePanel.name = data.name;
     }
 
     private void InputDataToPanel(ScorePanel currentScorePanel, DataClass data)
@@ -92,17 +127,11 @@ public class GameOverPanel : MonoBehaviour
         temp.SetActive(true);
     }
 
-    public void CallScoreInput()
-    {
-        input.gameObject.SetActive(true);
-        input.GetComponent<RectTransform>().DOAnchorPosY(0, 1).SetEase(Ease.OutQuad);
-    }
-
     private void LoadLeaderBoard()
     {
-        foreach (var item in GameManager.Instance.datas)
+        foreach (var item in GameManager.Instance.datas.datas)
         {
-            
+            InputDataFromLoad(item);
         }
     }
 
@@ -116,16 +145,8 @@ public class GameOverPanel : MonoBehaviour
     private void InputActiveFalse()
     {
         input.gameObject.SetActive(false);
+        temp = null;
         DOTween.Clear();
-    }
-
-    private void OnEnable()
-    {
-        scoreText.text = "ScoreText : " + MainSceneManager.Instance.score.ToString();
-        timeText.text = "Survive Time : " + MainSceneManager.Instance.surviveTime.ToString();
-
-        SortScorePanels();
-        CallScoreInput();
     }
 
 }

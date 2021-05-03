@@ -153,8 +153,8 @@ RectTransform:
   m_Father: {fileID: 339925503}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.55357146}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2092,10 +2092,35 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6539895985167607346, guid: d031a9117ef8ba24a99d1c767844c33f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6539895985167607347, guid: d031a9117ef8ba24a99d1c767844c33f,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6539895985167607347, guid: d031a9117ef8ba24a99d1c767844c33f,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6539895985167607347, guid: d031a9117ef8ba24a99d1c767844c33f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6539895985167607347, guid: d031a9117ef8ba24a99d1c767844c33f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6539895985167607347, guid: d031a9117ef8ba24a99d1c767844c33f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d031a9117ef8ba24a99d1c767844c33f, type: 3}
@@ -3639,7 +3664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1493138764
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3801,7 +3826,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.25031152, g: 0.41363332, b: 0.7075472, a: 0}
+  m_BackGroundColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3962,6 +3987,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPos: {x: 13, y: 7}
   minPos: {x: -13, y: -7}
+  datas:
+    datas: []
 --- !u!1 &1739233661
 GameObject:
   m_ObjectHideFlags: 0
@@ -4642,6 +4669,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScorePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 6539895985167607346, guid: d031a9117ef8ba24a99d1c767844c33f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6539895985167607347, guid: d031a9117ef8ba24a99d1c767844c33f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4700,12 +4732,12 @@ PrefabInstance:
     - target: {fileID: 6539895985167607347, guid: d031a9117ef8ba24a99d1c767844c33f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 726.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6539895985167607347, guid: d031a9117ef8ba24a99d1c767844c33f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6539895985167607347, guid: d031a9117ef8ba24a99d1c767844c33f,
         type: 3}
@@ -4725,7 +4757,7 @@ PrefabInstance:
     - target: {fileID: 6539895985167607347, guid: d031a9117ef8ba24a99d1c767844c33f,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6539895985167607347, guid: d031a9117ef8ba24a99d1c767844c33f,
         type: 3}
@@ -4735,7 +4767,7 @@ PrefabInstance:
     - target: {fileID: 6539895985167607347, guid: d031a9117ef8ba24a99d1c767844c33f,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6539895985167607347, guid: d031a9117ef8ba24a99d1c767844c33f,
         type: 3}
