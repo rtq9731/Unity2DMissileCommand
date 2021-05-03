@@ -17,6 +17,7 @@ public class GameOverPanel : MonoBehaviour
 
     private List<GameObject> scorePanels = new List<GameObject>();
 
+    GameObject temp = null;
 
     private void Awake()
     {
@@ -29,40 +30,45 @@ public class GameOverPanel : MonoBehaviour
 
     private void InputData()
     {
-        GameObject temp = null;
-        if (scorePanels.Count < 5)
+        if (scorePanels.Count < 5) // 스코어 판넬의 개수가 5개 이하라면 생성
         {
-            temp = Instantiate(scorePanelResource);
-            temp.transform.SetParent(leaderBorad.transform);
-            temp.GetComponent<ScorePanel>().score = MainSceneManager.Instance.score;
-            temp.transform.localScale = new Vector3(1, 1, 1);
-            scorePanels.Add(temp);
-            temp.SetActive(true);
+            MakeScorePanel(MainSceneManager.Instance.score);
         }
-        else
+        else // 5개 보다 많다면 정렬 후 가장 낮은 점수의 스코어 판넬의 데이터를 바꿔치기
         {
-            scorePanels.Sort((x, y) =>
-            {
-                if (x.GetComponent<ScorePanel>().score > y.GetComponent<ScorePanel>().score)
-                    return 1;
-                else if (x.GetComponent<ScorePanel>().score == y.GetComponent<ScorePanel>().score)
-                    return 0;
-                else if (x.GetComponent<ScorePanel>().score < y.GetComponent<ScorePanel>().score)
-                    return -1;
-
-                return 0;
-            });
+            SortScorePanels();
 
             GameObject tempObj = scorePanels[4].GetComponent<ScorePanel>().gameObject;
 
-            InputDataToPanel(scorePanels[4].GetComponent<ScorePanel>(), 
-                new DataClass(input.nameInput.text.ToString(), MainSceneManager.Instance.score, input.msgInput.text.ToString()));
+            InputDataToPanel(scorePanels[4].GetComponent<ScorePanel>(),
+                new DataClass(input.nameInput.text.ToString(), MainSceneManager.Instance.score, input.msgInput.text.ToString(), MainSceneManager.Instance.surviveTime));
 
             tempObj.transform.SetSiblingIndex(scorePanels.IndexOf(tempObj));
+            GameManager.Instance.SaveData();
             DeleteInput();
             return;
         }
 
+        SortScorePanels();
+
+        DataClass data = new DataClass(input.nameInput.text.ToString(), MainSceneManager.Instance.score, input.msgInput.text.ToString(), MainSceneManager.Instance.surviveTime);
+        GameManager.Instance.datas.Add(data);
+        temp.transform.SetSiblingIndex(scorePanels.IndexOf(temp));
+        InputDataToPanel(temp.GetComponent<ScorePanel>(), data);
+        GameManager.Instance.SaveData();
+        DeleteInput();
+    }
+
+    private void InputDataToPanel(ScorePanel currentScorePanel, DataClass data)
+    {
+        currentScorePanel.score = data.score;
+        currentScorePanel.msg = data.msg;
+        currentScorePanel.playerName = data.name;
+        currentScorePanel.ReloadData();
+    }
+
+    private void SortScorePanels()
+    {
         scorePanels.Sort((x, y) =>
         {
             if (x.GetComponent<ScorePanel>().score > y.GetComponent<ScorePanel>().score)
@@ -74,21 +80,22 @@ public class GameOverPanel : MonoBehaviour
 
             return 0;
         });
-
-        temp.transform.SetSiblingIndex(scorePanels.IndexOf(temp));
-        InputDataToPanel(temp.GetComponent<ScorePanel>(), new DataClass(input.nameInput.text.ToString(), 
-            MainSceneManager.Instance.score, input.msgInput.text.ToString()));
-
-        DeleteInput();
     }
 
-    private void InputDataToPanel(ScorePanel currentScorePanel, DataClass data)
+    private void MakeScorePanel(float score)
     {
-        GameManager.Instance.datas.Add(data);
-        currentScorePanel.score = data.score;
-        currentScorePanel.msg = data.msg;
-        currentScorePanel.playerName = data.name;
-        currentScorePanel.ReloadData();
+        temp = Instantiate(scorePanelResource);
+        temp.transform.SetParent(leaderBorad.transform);
+        temp.GetComponent<ScorePanel>().score = score;
+        temp.transform.localScale = new Vector3(1, 1, 1);
+        scorePanels.Add(temp);
+        temp.SetActive(true);
+    }
+
+    public void CallScoreInput()
+    {
+        input.gameObject.SetActive(true);
+        input.GetComponent<RectTransform>().DOAnchorPosY(0, 1).SetEase(Ease.OutQuad);
     }
 
     private void LoadLeaderBoard()
@@ -102,6 +109,8 @@ public class GameOverPanel : MonoBehaviour
     private void DeleteInput()
     {
         input.GetComponent<RectTransform>().DOAnchorPosY(800, 1).SetEase(Ease.InOutQuart);
+        input.nameInput.text = "";
+        input.msgInput.text = "";
         Invoke(nameof(InputActiveFalse), 2);
     }
     private void InputActiveFalse()
@@ -115,11 +124,8 @@ public class GameOverPanel : MonoBehaviour
         scoreText.text = "ScoreText : " + MainSceneManager.Instance.score.ToString();
         timeText.text = "Survive Time : " + MainSceneManager.Instance.surviveTime.ToString();
 
-        if (scorePanels.Count < 5)
-        {
-            input.gameObject.SetActive(true);
-            input.GetComponent<RectTransform>().DOAnchorPosY(0, 1).SetEase(Ease.OutQuad);
-        }
+        SortScorePanels();
+        CallScoreInput();
     }
 
 }

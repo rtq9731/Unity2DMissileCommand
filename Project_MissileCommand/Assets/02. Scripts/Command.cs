@@ -30,9 +30,5 @@ public class Command : MonoBehaviour
             Debug.Log("수비 미사일 발싸히히!!");
             MainSceneManager.Instance.MakeDefenseMissile();
         }
-
-        if (Input.GetKey(KeyCode.Delete))
-            GameManager.Instance.DeleteSave();
-
     }
 }

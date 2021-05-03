@@ -12,8 +12,6 @@ public class GameManager : MonoSingleton<GameManager>
     public Vector2 minPos = new Vector2(-8.6f, -4.6f);
 
     public List<DataClass> datas = new List<DataClass>();
-
-    private string filePath = (Application.persistentDataPath + "/TestSave.dat");
     private string jsonString;
 
     public enum TypesOfObj
@@ -26,7 +24,7 @@ public class GameManager : MonoSingleton<GameManager>
     public void SaveData()
     {
         jsonString = JsonUtility.ToJson(datas);
-        FileStream fs = new FileStream(filePath, FileMode.Create);
+        FileStream fs = new FileStream(Application.persistentDataPath + "/TestSave.dat", FileMode.Create);
         byte[] data = Encoding.UTF8.GetBytes(jsonString);
         fs.Write(data, 0, data.Length);
         fs.Close();
@@ -35,7 +33,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void LoadData()
     {
-        FileStream fs = new FileStream(filePath, FileMode.Open);
+        FileStream fs = new FileStream(Application.persistentDataPath + "/TestSave.dat", FileMode.Open);
         byte[] data = new byte[fs.Length];
         fs.Read(data, 0, data.Length);
         fs.Close();
@@ -50,7 +48,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void DeleteSave()
     {
-        if (File.Exists(Application.persistentDataPath + "/TestSave.dat"))
+        if (CheckSaveFile())
         {
             File.Delete(Application.persistentDataPath + "/TestSave.dat");
             Debug.Log ("성공적으로 삭제하였습니다.");

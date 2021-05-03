@@ -62,6 +62,11 @@ public class MainSceneManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Delete))
+            GameManager.Instance.DeleteSave();
+        if (Input.GetKeyDown(KeyCode.Insert))
+            FindObjectOfType<GameOverPanel>().CallScoreInput();
+
         if (makeMissileTimer >= makeMissileTime)
         {
             MakeMissile();
