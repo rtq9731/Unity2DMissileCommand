@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
+using System.Text;
+using System.Collections.Generic;
 using UnityEngine;
-using System.Runtime.Serialization.Formatters.Binary;
 
 
 
@@ -13,7 +11,10 @@ public class GameManager : MonoSingleton<GameManager>
     public Vector2 maxPos = new Vector2(8.6f, 4.6f);
     public Vector2 minPos = new Vector2(-8.6f, -4.6f);
 
-    List<DataClass> datas = new List<DataClass>();
+    public List<DataClass> datas = new List<DataClass>();
+
+    private string filePath = (Application.persistentDataPath + "/TestSave.dat");
+    private string jsonString;
 
     public enum TypesOfObj
     {
@@ -24,15 +25,22 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void SaveData()
     {
-        for (int i = 0; i < datas.Count; i++)
-        {
-            // PlayerPrefs.SetString($"{datas[i].id}", );
-        }
+        jsonString = JsonUtility.ToJson(datas);
+        FileStream fs = new FileStream(filePath, FileMode.Create);
+        byte[] data = Encoding.UTF8.GetBytes(jsonString);
+        fs.Write(data, 0, data.Length);
+        fs.Close();
+        Debug.Log("JSON : " + jsonString);
     }
 
     public void LoadData()
     {
-
+        FileStream fs = new FileStream(filePath, FileMode.Open);
+        byte[] data = new byte[fs.Length];
+        fs.Read(data, 0, data.Length);
+        fs.Close();
+        jsonString = Encoding.UTF8.GetString(data);
+        datas = JsonUtility.FromJson<List<DataClass>>(jsonString);
     }
 
     private bool CheckSaveFile()
@@ -40,7 +48,7 @@ public class GameManager : MonoSingleton<GameManager>
         return File.Exists(Application.persistentDataPath + "/TestSave.dat");
     }
 
-    private void DeleteSave()
+    public void DeleteSave()
     {
         if (File.Exists(Application.persistentDataPath + "/TestSave.dat"))
         {

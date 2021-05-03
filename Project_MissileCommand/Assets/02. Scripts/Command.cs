@@ -31,5 +31,8 @@ public class Command : MonoBehaviour
             MainSceneManager.Instance.MakeDefenseMissile();
         }
 
+        if (Input.GetKey(KeyCode.Delete))
+            GameManager.Instance.DeleteSave();
+
     }
 }

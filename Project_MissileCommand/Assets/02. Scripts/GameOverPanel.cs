@@ -16,7 +16,6 @@ public class GameOverPanel : MonoBehaviour
     private GameObject scorePanelResource = null;
 
     private List<GameObject> scorePanels = new List<GameObject>();
-    private List<DataClass> datas = new List<DataClass>();
 
 
     private void Awake()
@@ -54,19 +53,15 @@ public class GameOverPanel : MonoBehaviour
                 return 0;
             });
 
-            ScorePanel tempData = scorePanels[4].GetComponent<ScorePanel>();
-            GameObject tempObj = tempData.gameObject;
+            GameObject tempObj = scorePanels[4].GetComponent<ScorePanel>().gameObject;
 
-            tempData.score = MainSceneManager.Instance.score;
-            tempData.msg = input.msgInput.text.ToString();
-            tempData.playerName = input.nameInput.text.ToString();
+            InputDataToPanel(scorePanels[4].GetComponent<ScorePanel>(), 
+                new DataClass(input.nameInput.text.ToString(), MainSceneManager.Instance.score, input.msgInput.text.ToString()));
 
             tempObj.transform.SetSiblingIndex(scorePanels.IndexOf(tempObj));
             DeleteInput();
             return;
         }
-
-        ScorePanel currentScorePanel = temp.GetComponent<ScorePanel>();
 
         scorePanels.Sort((x, y) =>
         {
@@ -81,14 +76,27 @@ public class GameOverPanel : MonoBehaviour
         });
 
         temp.transform.SetSiblingIndex(scorePanels.IndexOf(temp));
-        DataClass data = new DataClass(input.nameInput.text.ToString(), MainSceneManager.Instance.score, input.msgInput.text.ToString());
-        datas.Add(data);
+        InputDataToPanel(temp.GetComponent<ScorePanel>(), new DataClass(input.nameInput.text.ToString(), 
+            MainSceneManager.Instance.score, input.msgInput.text.ToString()));
+
+        DeleteInput();
+    }
+
+    private void InputDataToPanel(ScorePanel currentScorePanel, DataClass data)
+    {
+        GameManager.Instance.datas.Add(data);
         currentScorePanel.score = data.score;
         currentScorePanel.msg = data.msg;
         currentScorePanel.playerName = data.name;
         currentScorePanel.ReloadData();
+    }
 
-        DeleteInput();
+    private void LoadLeaderBoard()
+    {
+        foreach (var item in GameManager.Instance.datas)
+        {
+            
+        }
     }
 
     private void DeleteInput()
@@ -99,6 +107,7 @@ public class GameOverPanel : MonoBehaviour
     private void InputActiveFalse()
     {
         input.gameObject.SetActive(false);
+        DOTween.Clear();
     }
 
     private void OnEnable()
@@ -110,7 +119,6 @@ public class GameOverPanel : MonoBehaviour
         {
             input.gameObject.SetActive(true);
             input.GetComponent<RectTransform>().DOAnchorPosY(0, 1).SetEase(Ease.OutQuad);
-            Invoke(nameof(DOTween.Clear), 2);
         }
     }
 
