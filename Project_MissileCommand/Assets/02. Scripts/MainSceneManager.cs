@@ -9,6 +9,8 @@ public class MainSceneManager : MonoBehaviour
     [SerializeField]
     private GameObject gameOverPanel;
 
+    private bool isGameover = false;
+
     public Command command;
 
     private GameObject missilePrefab;
@@ -44,6 +46,7 @@ public class MainSceneManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        isGameover = false;
         Time.timeScale = 1;
         numberOfMissile = 0;
         numberOfDefenseMissile = 0;
@@ -80,13 +83,17 @@ public class MainSceneManager : MonoBehaviour
         }
 
         cursorPos = FindObjectOfType<Cursor>().transform.position;
-        makeMissileTimer += Time.deltaTime;
-        stageTimer += Time.deltaTime;
+
+        if(!isGameover)
+        {
+            makeMissileTimer += Time.deltaTime;
+            stageTimer += Time.deltaTime;
+        }
     }
 
     public void GameOver()
     {
-        gameOverPanel.SetActive(true);
+        gameOverPanel.SetActive(true); isGameover = true;
     }
 
     public void MakeMissile()

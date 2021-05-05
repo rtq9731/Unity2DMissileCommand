@@ -11,7 +11,7 @@ public class ScorePanel : MonoBehaviour
     public Text msgText;
     public string msg;
     public Text surviveTimeText;
-    public float surviveTime = 0;
+    public float surviveTime;
 
     public void ReloadData()
     {

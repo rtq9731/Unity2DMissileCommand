@@ -55,7 +55,7 @@ public class GameOverPanel : MonoBehaviour
     {
         if (scorePanels.Count < 5) // 스코어 판넬의 개수가 5개 이하라면 생성
         {
-            MakeScorePanel(MainSceneManager.Instance.score);
+            MakeScorePanel(MainSceneManager.Instance.score, MainSceneManager.Instance.surviveTime);
         }
         else // 5개 보다 많다면 정렬 후 가장 낮은 점수의 스코어 판넬의 데이터를 바꿔치기
         {
@@ -65,9 +65,10 @@ public class GameOverPanel : MonoBehaviour
 
             InputDataToPanel(scorePanels[4].GetComponent<ScorePanel>(), new DataClass(input.nameInput.text, MainSceneManager.Instance.score, input.msgInput.text, MainSceneManager.Instance.surviveTime));
 
-            tempObj.transform.SetSiblingIndex(scorePanels.IndexOf(tempObj));
+            //tempObj.transform.SetSiblingIndex(scorePanels.IndexOf(tempObj));
             GameManager.Instance.SaveData();
             DeleteInput();
+            SortScorePanels();
             return;
         }
 
@@ -75,15 +76,15 @@ public class GameOverPanel : MonoBehaviour
 
         DataClass data = new DataClass(input.nameInput.text, MainSceneManager.Instance.score, input.msgInput.text, MainSceneManager.Instance.surviveTime);
         GameManager.Instance.datas.AddData(data);
-        temp.transform.SetSiblingIndex(scorePanels.IndexOf(temp));
+        //temp.transform.SetSiblingIndex(scorePanels.IndexOf(temp));
         InputDataToPanel(temp.GetComponent<ScorePanel>(), data);
         GameManager.Instance.SaveData();
+        SortScorePanels();
         DeleteInput();
     }
     private void InputDataFromLoad(DataClass data)
     {
-        GameObject temp = null;
-        temp = Instantiate(scorePanelResource);
+        GameObject temp = Instantiate(scorePanelResource);
         temp.transform.SetParent(leaderBorad.transform);
         temp.transform.localScale = new Vector3(1, 1, 1);
         scorePanels.Add(temp);
@@ -91,7 +92,10 @@ public class GameOverPanel : MonoBehaviour
         ScorePanel tempScorePanel = temp.GetComponent<ScorePanel>();
         tempScorePanel.score = data.score;
         tempScorePanel.msg = data.msg;
-        tempScorePanel.name = data.name;
+        tempScorePanel.playerName = data.name;
+        tempScorePanel.surviveTime = data.surviveTime;
+        tempScorePanel.ReloadData();
+        SortScorePanels();
     }
 
     private void InputDataToPanel(ScorePanel currentScorePanel, DataClass data)
@@ -104,24 +108,38 @@ public class GameOverPanel : MonoBehaviour
 
     private void SortScorePanels()
     {
-        scorePanels.Sort((x, y) =>
-        {
-            if (x.GetComponent<ScorePanel>().score > y.GetComponent<ScorePanel>().score)
-                return 1;
-            else if (x.GetComponent<ScorePanel>().score == y.GetComponent<ScorePanel>().score)
-                return 0;
-            else if (x.GetComponent<ScorePanel>().score < y.GetComponent<ScorePanel>().score)
-                return -1;
+        //scorePanels.Sort((x, y) =>
+        //{
+        //    Debug.Log(x.GetComponent<ScorePanel>().name);
+        //    if (x.GetComponent<ScorePanel>().score > y.GetComponent<ScorePanel>().score)
+        //        return -1;
+        //    else if (x.GetComponent<ScorePanel>().score == y.GetComponent<ScorePanel>().score)
+        //        return 0;
+        //    else if (x.GetComponent<ScorePanel>().score < y.GetComponent<ScorePanel>().score)
+        //        return 1;
 
-            return 0;
-        });
+        //    return 0;
+        //});
+
+        scorePanels.Sort((x, y) => y.GetComponent<ScorePanel>().score.CompareTo(x.GetComponent<ScorePanel>().score));
+
+        for (int i = 0; i < scorePanels.Count; i++)
+        {
+            Debug.Log( i + " " + scorePanels[i].GetComponent<ScorePanel>().score);
+        }
+
+        foreach (var item in scorePanels)
+        {
+            item.transform.SetSiblingIndex(scorePanels.IndexOf(item));
+        }
     }
 
-    private void MakeScorePanel(float score)
+    private void MakeScorePanel(float score, float surviveTime)
     {
         temp = Instantiate(scorePanelResource);
         temp.transform.SetParent(leaderBorad.transform);
         temp.GetComponent<ScorePanel>().score = score;
+        temp.GetComponent<ScorePanel>().surviveTime = surviveTime;
         temp.transform.localScale = new Vector3(1, 1, 1);
         scorePanels.Add(temp);
         temp.SetActive(true);
