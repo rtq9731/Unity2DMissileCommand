@@ -40,7 +40,7 @@ public class DefenseMissile : MonoBehaviour
         {
             if(isDead && Vector2.Distance(this.gameObject.transform.position, item.transform.position) <= defenseRange)
             {
-                item.gameObject.GetComponent<EnemyMissile>().isHit = true;
+                item.gameObject.GetComponent<EnemyMissile>().StartCoroutine(item.gameObject.GetComponent<EnemyMissile>().explosion(true));
             }
         }
 

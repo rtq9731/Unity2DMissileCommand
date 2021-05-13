@@ -27,7 +27,6 @@ public class Command : MonoBehaviour
         if (missileFireTimer > missileFireCool && Input.GetKey(KeyCode.Z))
         {
             missileFireTimer = 0;
-            Debug.Log("수비 미사일 발싸히히!!");
             MainSceneManager.Instance.MakeDefenseMissile();
         }
     }

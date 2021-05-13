@@ -41,8 +41,6 @@ public class GameOverPanel : MonoBehaviour
 
         if (GameManager.Instance.datas.datas.Count < 5 || MainSceneManager.Instance.surviveTime > GameManager.Instance.datas.datas[4].surviveTime)
             CallScoreInput();
-
-        Debug.Log(this.gameObject.name + " 켜짐 ! ");
     }
 
     public void CallScoreInput()
@@ -122,11 +120,6 @@ public class GameOverPanel : MonoBehaviour
         //});
 
         scorePanels.Sort((x, y) => y.GetComponent<ScorePanel>().score.CompareTo(x.GetComponent<ScorePanel>().score));
-
-        for (int i = 0; i < scorePanels.Count; i++)
-        {
-            Debug.Log( i + " " + scorePanels[i].GetComponent<ScorePanel>().score);
-        }
 
         foreach (var item in scorePanels)
         {

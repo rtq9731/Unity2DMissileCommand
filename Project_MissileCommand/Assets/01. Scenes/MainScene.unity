@@ -1288,7 +1288,7 @@ MonoBehaviour:
   defenseMissileList: []
   score: 0
   surviveTime: 0
-  makeMissileTimeMinus: 2
+  makeMissileTimeMinus: 0.3
   makeMissileTime: 3
   stageTime: 10
   cities: 0

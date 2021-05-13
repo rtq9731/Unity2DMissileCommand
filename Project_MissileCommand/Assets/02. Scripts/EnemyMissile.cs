@@ -23,10 +23,8 @@ public class EnemyMissile : MonoBehaviour
     private float angle;
     private float timer;
 
-    public bool isDead = false;
     private bool isFly;
-    private bool isDie; 
-    public bool isHit;
+    public bool isDie;
     public bool isScoreUp = false;
 
     void OnEnable()
@@ -34,7 +32,6 @@ public class EnemyMissile : MonoBehaviour
         timer = 0;
         isFly = true;
         isDie = false;
-        isHit = false;
 
         this.transform.position = new Vector2(UnityEngine.Random.Range(GameManager.Instance.minPos.x, GameManager.Instance.maxPos.x), GameManager.Instance.maxPos.y); //타겟 포지션 랜덤 생성
         targetPos = new Vector2(UnityEngine.Random.Range(GameManager.Instance.minPos.x, GameManager.Instance.maxPos.x), GameManager.Instance.minPos.y );
@@ -51,9 +48,9 @@ public class EnemyMissile : MonoBehaviour
     private void Update()
     {
 
-        if (this.transform.position.y < GameManager.Instance.minPos.y && timer > 2f || isHit )
+        if (this.transform.position.y < GameManager.Instance.minPos.y && timer > 2f)
         {
-            StartCoroutine(explosion());
+            StartCoroutine(explosion(false));
             timer = 0;
             isFly = false;
         }
@@ -63,25 +60,25 @@ public class EnemyMissile : MonoBehaviour
         timer += Time.deltaTime;
     }
 
-    IEnumerator explosion()
+    public IEnumerator explosion(bool isDefense)
     {
         animator.SetBool("isBoom", true);
 
-        if(!isDie)
+        isFly = false;
+        if (!isDie && isDefense)
         {
-            isDie = true;
             MainSceneManager.Instance.score += scoreOfDefense;
             MainSceneManager.Instance.TopUIManager.isDefenseScoreUp = true;
             if (scoreOfDefense == 0)
                 Debug.Log(this.gameObject + " = " + "점수가 초기화되지 않았습니다!");
         }
+        isDie = true;
 
         particle.Stop();
         yield return new WaitForSeconds(1.42f);
         transform.position = new Vector2(UnityEngine.Random.Range(GameManager.Instance.minPos.x, GameManager.Instance.maxPos.x), 7);
         animator.SetBool("isBoom", false);
         this.gameObject.SetActive(false);
-        isHit = false;
         isDie = false;
         yield return 0;
     }

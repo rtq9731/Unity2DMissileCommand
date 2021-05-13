@@ -24,9 +24,9 @@ public class MissileHitScan : MonoBehaviour
         {
             if (item == null)
                 break;
-            if (Vector2.Distance(item.transform.position, transform.position) <= hitRange && item.gameObject.activeSelf && !item.GetComponent<EnemyMissile>().isHit)
+            if (Vector2.Distance(item.transform.position, transform.position) <= hitRange && item.gameObject.activeSelf && !item.GetComponent<EnemyMissile>().isDie)
             {
-                item.GetComponent<EnemyMissile>().isHit = true;
+                item.GetComponent<EnemyMissile>().StartCoroutine(item.GetComponent<EnemyMissile>().explosion(false));
                 hp--;
                 if (hp <= 0 && !animator.GetBool("isDead"))
                     StartCoroutine(Die());
