@@ -19,7 +19,7 @@ public class Command : MonoBehaviour
     {
         if (hitScan.isDead)
             MainSceneManager.Instance.GameOver();
-        else
+        else if(!MainSceneManager.Instance.isGameover)
             MainSceneManager.Instance.surviveTime += Time.deltaTime;
 
         missileFireTimer += Time.deltaTime;

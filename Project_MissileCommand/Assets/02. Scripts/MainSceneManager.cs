@@ -9,7 +9,7 @@ public class MainSceneManager : MonoBehaviour
     [SerializeField]
     private GameObject gameOverPanel;
 
-    private bool isGameover = false;
+    public bool isGameover = false;
 
     public Command command;
 
