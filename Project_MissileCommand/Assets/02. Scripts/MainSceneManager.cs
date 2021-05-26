@@ -84,6 +84,11 @@ public class MainSceneManager : MonoBehaviour
 
         cursorPos = FindObjectOfType<Cursor>().transform.position;
 
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         if(!isGameover)
         {
             makeMissileTimer += Time.deltaTime;
