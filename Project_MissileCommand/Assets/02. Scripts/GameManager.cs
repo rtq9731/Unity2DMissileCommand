@@ -18,7 +18,7 @@ public class GameManager : MonoSingleton<GameManager>
     public void SaveData()
     {
         jsonString = JsonUtility.ToJson(datas);
-        FileStream fs = new FileStream(Application.persistentDataPath + "/TestSave.dat", FileMode.Create);
+        FileStream fs = new FileStream(Application.persistentDataPath + "/save.dat", FileMode.Create);
         byte[] data = Encoding.UTF8.GetBytes(jsonString);
         fs.Write(data, 0, data.Length);
         fs.Close();
@@ -27,7 +27,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void LoadData() 
     {
-        FileStream fs = new FileStream(Application.persistentDataPath + "/TestSave.dat", FileMode.Open);
+        FileStream fs = new FileStream(Application.persistentDataPath + "/save.dat", FileMode.Open);
         byte[] data = new byte[fs.Length];
         fs.Read(data, 0, data.Length);
         fs.Close();
