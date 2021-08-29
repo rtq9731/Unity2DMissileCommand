@@ -29,8 +29,8 @@ public class GameOverPanel : MonoBehaviour
     }
     private void OnEnable()
     {
-        scoreText.text = "ScoreText : " + MainSceneManager.Instance.score.ToString();
-        timeText.text = "Survive Time : " + MainSceneManager.Instance.surviveTime.ToString();
+        scoreText.text = "ScoreText : " + GameManager.Instance.score.ToString();
+        timeText.text = "Survive Time : " + GameManager.Instance.surviveTime.ToString();
 
         if (GameManager.Instance.CheckSaveFile())
         {
@@ -39,7 +39,7 @@ public class GameOverPanel : MonoBehaviour
         }
         SortScorePanels();
 
-        if (GameManager.Instance.datas.datas.Count < 5 || MainSceneManager.Instance.surviveTime > GameManager.Instance.datas.datas[4].surviveTime)
+        if (GameManager.Instance.datas.datas.Count < 5 || GameManager.Instance.surviveTime > GameManager.Instance.datas.datas[4].surviveTime)
             CallScoreInput();
     }
 
@@ -53,7 +53,7 @@ public class GameOverPanel : MonoBehaviour
     {
         if (scorePanels.Count < 5) // 스코어 판넬의 개수가 5개 이하라면 생성
         {
-            MakeScorePanel(MainSceneManager.Instance.score, MainSceneManager.Instance.surviveTime);
+            MakeScorePanel(GameManager.Instance.score, GameManager.Instance.surviveTime);
         }
         else // 5개 보다 많다면 정렬 후 가장 낮은 점수의 스코어 판넬의 데이터를 바꿔치기
         {
@@ -61,7 +61,7 @@ public class GameOverPanel : MonoBehaviour
 
             GameObject tempObj = scorePanels[4].GetComponent<ScorePanel>().gameObject;
 
-            InputDataToPanel(scorePanels[4].GetComponent<ScorePanel>(), new DataClass(input.nameInput.text, MainSceneManager.Instance.score, input.msgInput.text, MainSceneManager.Instance.surviveTime));
+            InputDataToPanel(scorePanels[4].GetComponent<ScorePanel>(), new DataClass(input.nameInput.text, GameManager.Instance.score, input.msgInput.text, GameManager.Instance.surviveTime));
 
             //tempObj.transform.SetSiblingIndex(scorePanels.IndexOf(tempObj));
             GameManager.Instance.SaveData();
@@ -72,7 +72,7 @@ public class GameOverPanel : MonoBehaviour
 
         SortScorePanels();
 
-        DataClass data = new DataClass(input.nameInput.text, MainSceneManager.Instance.score, input.msgInput.text, MainSceneManager.Instance.surviveTime);
+        DataClass data = new DataClass(input.nameInput.text, GameManager.Instance.score, input.msgInput.text, GameManager.Instance.surviveTime);
         GameManager.Instance.datas.AddData(data);
         //temp.transform.SetSiblingIndex(scorePanels.IndexOf(temp));
         InputDataToPanel(temp.GetComponent<ScorePanel>(), data);
